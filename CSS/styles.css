@@ -152,19 +152,75 @@ REUSABLE SELECTORS
   color: var(--light-text-color);
 }
 
+.icon-small a:hover {
+  display: flex;
+  align-items: center;
+  padding: 0 0.25em;
+  font-weight: normal;
+}
 
+.icon-small {
+  font-size: 1.25em;
+  margin: auto;
+  margin-left: 0.5em;
+}
 
+.icon-large {
+  font-size: 1.75em;
+  padding: 0 0.75em 0 0;
+}
 
+/*header*/
+
+header li > a {
+  display: flex;
+  position: relative;
+  line-height: inherit;
+}
+
+.header-top .wrapper {
+  font-size: var(--font-small);
+  font-weight: var(--fw3);
+  justify-content: space-between;
+  line-height: 42px;
+}
+
+.header-top .wrapper ul {
+  gap: 2em;
+}
+
+.header-top li {
+  position: relative;
+}
+
+.header-top ul ul {
+  position: absolute;
+  left: -1em;
+  line-height: 2em;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  z-index: 1;
+  display: none;
+}
+
+.header-top .right ul ul li a {
+  padding: 0.2em 0.75em;
+}
+
+.header-top .right ul ul li.current a {
+  background-color: var(--border-color);
+}
+
+.header-top li:hover ul {
+  display: block;
+}
 
 /*
 Responsive Media Queries
 */
 
 @media screen and (min-width: 992px) {
-
-    .container {
-      padding: 0;
-    }
-
-
+  .container {
+    padding: 0;
+  }
 }
