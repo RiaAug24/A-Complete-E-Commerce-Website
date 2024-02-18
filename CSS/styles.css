@@ -220,6 +220,12 @@ header li > a {
   display: block;
 }
 
+.header-nav {
+  padding: 0.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid var(--border-color);
+}
+
 .trigger {
   font-size: 1.5em;
   display: flex;
