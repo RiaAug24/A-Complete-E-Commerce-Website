@@ -300,7 +300,18 @@ form {
   background-color: var(--white-color);
   overflow-y: auto;
   z-index: 1000;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 400ms, visibility 400ms;
+  will-change: transform, visibility;
 }
+
+.showmenu .site-off {
+  transform: translateX(0);
+  visibility: visible;
+  transform: transform 400ms 0s visibility 0s 0s;
+}
+
 
 .off-canvas {
   width: var(--percent100);
@@ -499,7 +510,7 @@ nav .fly-item {
   height: auto;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 3s cubic-bezier(0.315, 0.615, 0.255, 0.5);
+  transition: max-height 2.45s cubic-bezier(0.325, 0.615, 0.255, 0.45);
 }
 
 .off-canvas .thetop-nav ul,
