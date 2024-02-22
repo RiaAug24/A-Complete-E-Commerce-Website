@@ -178,6 +178,7 @@ REUSABLE SELECTORS
 
 .object-cover img {
   position: absolute;
+  box-sizing: border-box;
   object-fit: cover;
   width: var(--percent100);
   height: var(--percent100);
@@ -311,7 +312,6 @@ form {
   visibility: visible;
   transform: transform 400ms 0s visibility 0s 0s;
 }
-
 
 .off-canvas {
   width: var(--percent100);
@@ -546,7 +546,7 @@ nav .fly-item {
 }
 
 .off-canvas .expand > :where(ul, .mega) {
-    max-height: 2000px;
+  max-height: 2000px;
 }
 
 .off-canvas .thetop-nav .right ul ul {
@@ -627,15 +627,12 @@ nav li.has-child:hover .mega {
   text-decoration: underline;
 }
 
-
-
-
 /*
     Slider Section
 */
 
-.slider > div > .wrapper {
-  width: calc(100% - (300px + 2em));
+.slider .container >  .wrapper {
+  max-width: var(--percent100);
   margin-left: auto;
 }
 
@@ -645,18 +642,17 @@ nav li.has-child:hover .mega {
 }
 
 .slider .item::before {
-    content: '';
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 475px;
-    height: 300px;
-    background-color: var(--white-color);
-    z-index: 1;
-    filter: blur(50px);
-    opacity: 0.85;
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 475px;
+  height: 300px;
+  background-color: var(--white-color);
+  z-index: 1;
+  filter: blur(50px);
+  opacity: 0.85;
 }
-
 
 .slider .text-content {
   position: relative;
@@ -676,31 +672,38 @@ nav li.has-child:hover .mega {
   border-radius: 4px;
 }
 
-.text-content :where(h2, h3) span:first-child{
-    font-weight: var(--fw3);
-    columns: var(--light-bg-color);
-  }
+.text-content :where(h2, h3) span:first-child {
+  font-weight: var(--fw3);
+  columns: var(--light-bg-color);
+}
 
-  .text-content :where(h2, h3) span:last-child{
-    color: var(--secondary-dark-color);
-    text-transform: uppercase;
-    letter-spacing: -1px;
-  }
+.text-content :where(h2, h3) span:last-child {
+  color: var(--secondary-dark-color);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
 
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--secondary-dark-color);
+}
+/*
+  Brands
+*/
 
+.brands .wrapper {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2em 0;
+}
 
-  .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: var(--secondary-dark-color);
-  }
+.brands .item img {
+  opacity: 0.25;
+  transition: opacity 0.3s;
+}
 
-
-
-
-
-
-
-
-
+.brands .item a:hover img {
+  opacity: 1;
+}
 
 
 /*
@@ -894,5 +897,9 @@ Responsive Media Queries
 
   .dpt-menu .has-child:hover .mega {
     display: flex;
+  }
+  .slider .container > .wrapper {
+    width: calc(100% - (315px + 2em));
+    margin-left: auto;
   }
 }
