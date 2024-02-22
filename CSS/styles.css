@@ -730,10 +730,6 @@ nav li.has-child:hover .mega {
   top: -5px;
 }
 
-.trending .products {
-  flex: 0 0 33%;
-}
-
 .trending .products .offer {
   text-align: center;
   margin-bottom: 1.5em;
@@ -759,15 +755,137 @@ nav li.has-child:hover .mega {
   border-radius: 6px;
 }
 
-
 .products .offer ul li:not(:last-child)::before {
-  content: ':';
+  content: ":";
   position: absolute;
   right: -0.6em;
-  color: var(--light-text-color)
+  color: var(--light-text-color);
 }
 
+.trending .column .row {
+  padding: 0 1.25em;
+}
 
+.products :where(.image, .thumbnail) img {
+  transition: transform 0.3s;
+}
+
+.products :where(.image, .thumbnail):hover img {
+  transform: scale(1.1);
+}
+
+.products.big .item {
+  flex-direction: column;
+  padding: 2.5em;
+  border: 2px solid var(--secondary-dark-color);
+  border-radius: 7px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.trending .hoverable {
+  padding: 0.5em;
+  position: absolute;
+  top: 15px;
+  left: auto;
+  bottom: 0;
+}
+
+.trending .hoverable ul li {
+  border-radius: var(--percent50);
+  background-color: var(--light-bg-color);
+  padding: 0 0.25em;
+  opacity: 0.75;
+  margin-bottom: 1.25em;
+}
+
+.trending .hoverable ul li:hover {
+  background-color: transparent;
+  opacity: 1;
+}
+
+.products .hoverable li.active a:hover {
+  border-radius: var(--percent50);
+  color: var(--primary-color);
+}
+
+.products .hoverable li:not(.active) {
+  transform: translateX(100%);
+  opacity: 0;
+  transform: transform 0.45 opacity 0.25s;
+}
+
+.products .item:hover .hoverable li {
+  transform: translateX(0);
+  opacity: 1;
+}
+.products .hoverable li:last-child {
+  transition-delay: 0.1s;
+}
+
+.products .rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.products .rating .stars {
+  width: 80px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='rgba(240,187,64,1)'%3E%3Cpath d='M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z'%3E%3C/path%3E%3C/svg%3E");
+  background-position-y: top;
+  background-repeat: repeat-x;
+}
+
+.products h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.products .price .current {
+  font-size: calc(1em + 1vw);
+  color: var(--primary-color);
+  margin-right: 0.25em;
+}
+
+.products h3 a:hover {
+  text-decoration: underline;
+}
+
+.products .discount {
+  top: auto;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.products .discount::before {
+  background-color: var(--dark-color);
+}
+
+.products .discount span {
+  position: relative;
+  font-size: var(--font-smaller);
+  font-weight: var(--fw5);
+  color: var(--white-color);
+}
+
+.products .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.products:where(.big, .main-one) .content {
+  gap: 1em;
+  margin-top: 1.25em;
+}
 
 /*
 Responsive Media Queries
@@ -929,12 +1047,14 @@ Responsive Media Queries
   .dpt-menu .beauty ul {
     background-image: url("/assets/menu/menu_bg1.jpg");
   }
-  .dpt-menu .fashion ul {
+
+  .dpt-menu .electronics ul {
     background-image: url("/assets/menu/menu_bg2.jpg");
   }
-  .dpt-menu .electronics ul {
+  .dpt-menu .fashion ul {
     background-image: url("/assets/menu/menu_bg3.jpg");
   }
+
   .dpt-menu .homekit .mega {
     background-image: url("/assets/menu/menu_bg4.jpg");
   }
@@ -964,5 +1084,32 @@ Responsive Media Queries
   .slider .container > .wrapper {
     width: calc(100% - (315px + 2em));
     margin-left: auto;
+  }
+
+  .trending .products {
+    flex: 0 0 33%;
+  }
+
+  .products.big .media {
+    max-height: 372px;
+  }
+  .trending .hoverable {
+    padding: 0.5em;
+    position: absolute;
+    top: 15px;
+    left: auto;
+    bottom: 0;
+  }
+  .trending .hoverable ul li {
+    border-radius: var(--percent50);
+    background-color: var(--light-bg-color);
+    padding: 0 0.25em;
+    opacity: 0.75;
+    margin-bottom: 1.25em;
+  }
+
+  .trending .hoverable ul li:hover {
+    background-color: transparent;
+    opacity: 1;
   }
 }
