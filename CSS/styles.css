@@ -940,8 +940,12 @@ nav li.has-child:hover .mega {
   background-color: var(--secondary-color);
 }
 
-/*
 
+.flexwrap .row {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 2em;
+}
 
 
 
@@ -992,6 +996,10 @@ Responsive Media Queries
 @media screen and (min-width: 768px) {
   .products .price .current {
     font-size: 1.25em;
+  }
+
+  .products.mini {
+    flex: 0 0 50%;
   }
 }
 
